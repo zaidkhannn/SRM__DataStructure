@@ -1,2 +1,2 @@
-# DataStructure
+# SRM_DataStructure
 coade solutions
