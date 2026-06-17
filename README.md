@@ -1,2 +1,2 @@
-#SRMCEM DataStructure
+# DataStructure
 coade solutions
