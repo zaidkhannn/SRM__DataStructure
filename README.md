@@ -1,2 +1,2 @@
 # SRM_DataStructure
-coade solutions
+code solutions
