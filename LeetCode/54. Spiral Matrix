@@ -1,0 +1,51 @@
+import java.util.*;
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+
+        List<Integer> result = new ArrayList<>();
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        // Boundaries (as per your diagram)
+        int rowBegin = 0;
+        int rowEnd = m - 1;
+        int colBegin = 0;
+        int colEnd = n - 1;
+
+        // Loop until boundaries cross
+        while (rowBegin <= rowEnd && colBegin <= colEnd) {
+
+            // 🔹 1. Traverse LEFT → RIGHT (Top Row)
+            for (int j = colBegin; j <= colEnd; j++) {
+                result.add(matrix[rowBegin][j]);
+            }
+            rowBegin++; // move top boundary down
+
+            // 🔹 2. Traverse TOP → BOTTOM (Right Column)
+            for (int i = rowBegin; i <= rowEnd; i++) {
+                result.add(matrix[i][colEnd]);
+            }
+            colEnd--; // move right boundary left
+
+            // 🔹 3. Traverse RIGHT → LEFT (Bottom Row)
+            if (rowBegin <= rowEnd) {
+                for (int j = colEnd; j >= colBegin; j--) {
+                    result.add(matrix[rowEnd][j]);
+                }
+                rowEnd--; // move bottom boundary up
+            }
+
+            // 🔹 4. Traverse BOTTOM → TOP (Left Column)
+            if (colBegin <= colEnd) {
+                for (int i = rowEnd; i >= rowBegin; i--) {
+                    result.add(matrix[i][colBegin]);
+                }
+                colBegin++; // move left boundary right
+            }
+        }
+
+        return result;
+    }
+}
